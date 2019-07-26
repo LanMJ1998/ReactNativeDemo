@@ -587,6 +587,7 @@ const styles = StyleSheet.create({
   },
   tools_detail_icon_pic:{
     marginBottom:5,
+    alignSelf:'center',
   },
   tools_detail_icon_txt:{
     fontSize:12,

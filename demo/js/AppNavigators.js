@@ -3,6 +3,7 @@ import App from './App';
 import DisposeIndex from './DisposeIndex';
 import ToolsIndex from './ToolsIndex';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MeIndex from './MeIndex';
 import { createBottomTabNavigator,createStackNavigator,createMaterialTopTabNavigator  } from 'react-navigation';
 
 
@@ -28,7 +29,7 @@ const AppBottomTabNavigator=createBottomTabNavigator(
 			tabBarLabel:"待办",
 			tabBarIcon:({tintColor,focused})=>(
 				<Ionicons
-					name={'ios-home'}
+					name={'ios-time'}
 					size={22}
 					style={{color:tintColor}}
 				/>
@@ -41,7 +42,7 @@ const AppBottomTabNavigator=createBottomTabNavigator(
 			tabBarLabel:"工具",
 			tabBarIcon:({tintColor,focused})=>(
 				<Ionicons
-					name={'ios-home'}
+					name={'ios-hammer'}
 					size={22}
 					style={{color:tintColor}}
 				/>
@@ -50,12 +51,12 @@ const AppBottomTabNavigator=createBottomTabNavigator(
 
 	},
 	Page4:{
-		screen:App,
+		screen:MeIndex,
 		navigationOptions:{
 			tabBarLabel:"我的",
 			tabBarIcon:({tintColor,focused})=>(
 				<Ionicons
-					name={'ios-home'}
+					name={'ios-person'}
 					size={22}
 					style={{color:tintColor}}
 				/>
@@ -173,6 +174,12 @@ export const AppStackNavigator=createStackNavigator(
             header:null
         }
 	},
+	MeIndex:{
+		screen:MeIndex,
+		navigationOptions:{
+            header:null
+		}
+	}	
 },{
 	initialRouteName: "Bottom",
 

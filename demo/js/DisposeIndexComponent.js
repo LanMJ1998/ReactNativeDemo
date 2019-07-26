@@ -233,15 +233,18 @@ const styles = StyleSheet.create({
   tools_detail_wrap:{
     flexDirection:"column",
     justifyContent:"center",
+    alignContent:'center',
   },
 
   tools_detail_icon_pic:{
     marginBottom:5,
+    alignSelf:'center',
   },
   tools_detail_icon_txt:{
     fontSize:12,
     color:"#000000",
     opacity:0.65,
+    alignSelf:'center',
   },
   title_wrap:{
     flexDirection:"row",

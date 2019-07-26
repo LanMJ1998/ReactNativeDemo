@@ -18,13 +18,14 @@ import React, {
   } from 'react-native';
 
 
-import  {TopBar,Title,ToolsIcon}  from './ToolsComponent';
+import  {TopBar,Title,ToolsIcon,WorkHelp,ReportItem}  from './ToolsComponent';
 
 export default class ToolsIndex extends Component {
 
     render() {
       return (
         <SafeAreaView>
+            
             <ScrollView  contentInsetAdjustmentBehavior="automatic" >
                 <TopBar/>
                 <View style={styles.body_wrap}>
@@ -41,7 +42,38 @@ export default class ToolsIndex extends Component {
                     </View>
                 </View> 
                 <View style={styles.separate_line}>
-                </View>               
+                </View>  
+                <View style={styles.body_wrap}>
+                    <Title/>
+                    <View style={styles.icon_wrap}>
+                        <ToolsIcon/>
+                        <ToolsIcon/>
+                        <ToolsIcon/>
+                    </View>
+                </View>   
+                <View style={styles.separate_line}>
+                </View>   
+                <View style={styles.body_wrap}>
+                    <Title/>
+                    <View style={styles.helper_wrap}>
+                        <WorkHelp/>
+                        <WorkHelp/>
+                    </View>
+                </View> 
+                <View style={styles.separate_line}>
+                </View>           
+                <View style={styles.body_wrap}>
+                    <Title/>
+                    <View style={styles.report_wrap}>
+                        <ReportItem/>
+                        <ReportItem/>
+                        <ReportItem/>
+                        <ReportItem/>
+                        <ReportItem/>
+                    </View>
+                </View> 
+                <View style={styles.separate_line}>
+                </View> 
             </ScrollView>
         </SafeAreaView>
        
@@ -66,5 +98,15 @@ export default class ToolsIndex extends Component {
     separate_line:{
         height:10,
         backgroundColor:"#F5F5F9",
+      },
+      helper_wrap:{
+        flexDirection:'row',
+        justifyContent:'space-between',
+      
+      },
+      report_wrap:{
+        flexDirection:'row',
+        justifyContent:'flex-start',
+        flexWrap:'wrap',
       },
   })
