@@ -46,7 +46,7 @@ const App = () => {
             marginTop:-35,
           }
 
-      }
+      };
   
   const shadow_overtime = {
           width:Dimensions.get('window').width-28,
@@ -63,7 +63,7 @@ const App = () => {
             marginBottom:8,
           }
 
-      }
+      };
 
   return (
      
