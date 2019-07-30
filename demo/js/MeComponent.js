@@ -25,7 +25,7 @@ import React, {Component,} from 'react';
                 <ImageBackground style={styles.me_bg_title_notice} 
                                 source={require('../img/me_notice.png')}>
                     <View style={styles.me_bg_title_circle}>
-                        <Text style={styles.me_bg_title_circle_txt}>10</Text>
+                        <Text style={styles.me_bg_title_circle_txt} numberOfLines={1}>{this.props.noticeNum}</Text>
                     </View>
                 </ImageBackground>
             </View>
@@ -62,22 +62,22 @@ import React, {Component,} from 'react';
         <BoxShadow setting={shadowOpt}>
            <View style={styles.general_view}>
                 <View style={styles.general_view_wrap}>
-                    <Text style={styles.general_view_num}>472</Text>
-                    <Text style={styles.general_view_txt}>本月处理故障数</Text>
+                    <Text style={styles.general_view_num}>{this.props.monthFaultSum}</Text>
+                    <Text style={styles.general_view_txt}>{this.props.monthFault}</Text>
                 </View>
                 <View style={styles.general_view_wrap}>
-                    <Text style={styles.general_view_num}>472</Text>
-                    <Text style={styles.general_view_txt}>本月处理故障数</Text>
+                    <Text style={styles.general_view_num}>{this.props.dayFaultSum}</Text>
+                    <Text style={styles.general_view_txt}>{this.props.dayFault}</Text>
                 </View>
                 <View style={styles.general_view_wrap}>
-                    <Text style={styles.general_view_num}>472</Text>
-                    <Text style={styles.general_view_txt}>本月处理故障数</Text>
+                    <Text style={styles.general_view_num}>{this.props.avgTime}</Text>
+                    <Text style={styles.general_view_txt}>{this.props.avg}</Text>
                 </View>
            </View>
                 
                  
       </BoxShadow>
-        
+
       );
     }
   };
@@ -87,9 +87,9 @@ import React, {Component,} from 'react';
       return (
         <View style={styles.me_bg_icon_wrap}>
             <Image
-                source={require('../img/work_analyse.png')}
+                source={this.props.pic}
                 style={styles.me_bg_icon_pic}/>
-            <Text style={styles.me_bg_icon_txt}>工作分析</Text>
+            <Text style={styles.me_bg_icon_txt}>{this.props.name}</Text>
         </View>
         
       );
@@ -98,12 +98,17 @@ import React, {Component,} from 'react';
 
   export  class MeGeneralIcon extends Component {
     render() {
+      let Icons = {pic1:require('../img/work_analyse.png') , name1:'工作分析',
+                 pic2:require('../img/icon_config.png') , name2:'图标配置',
+                 pic3:require('../img/phone.png') , name3:'客服电话',
+                 pic4:require('../img/problem.png') , name4:'常见问题'};
+
       return (
         <View style={styles.me_bg_icon}>
-            <Icon/>
-            <Icon/>
-            <Icon/>
-            <Icon/>
+            <Icon pic={Icons.pic1} name={Icons.name1}/>
+            <Icon pic={Icons.pic2} name={Icons.name2}/>
+            <Icon pic={Icons.pic3} name={Icons.name3}/>
+            <Icon pic={Icons.pic4} name={Icons.name4}/>
         </View>     
       );
     }
@@ -113,8 +118,8 @@ import React, {Component,} from 'react';
     render() {
       return (
         <View style={styles.op_list}>
-            <Image source={require('../img/profile.png')} style={styles.op_list_icon}/>
-            <Text style={styles.op_list_txt}>个人资料</Text>
+            <Image source={this.props.pic} style={styles.op_list_icon}/>
+            <Text style={styles.op_list_txt}>{this.props.name}</Text>
             <Image source={require('../img/me_more.png')} style={styles.op_list_more}/>
         </View>     
       );
@@ -123,15 +128,19 @@ import React, {Component,} from 'react';
 
   export  class MeOpList extends Component {
     render() {
+      let Op = [{icon:require('../img/profile.png'), name:'个人资料'},
+                {icon:require('../img/update.png'), name:'版本升级'},
+                {icon:require('../img/clean.png'), name:'清理缓存'},
+                {icon:require('../img/suggest.png'), name:'意见与反馈'}];
       return (
         <View>
-            <MeOpListItem/>
+            <MeOpListItem pic={Op[0].icon} name={Op[0].name}/>
             <Seperate/>
-            <MeOpListItem/>
+            <MeOpListItem pic={Op[1].icon} name={Op[1].name}/>
             <Seperate/>
-            <MeOpListItem/>
+            <MeOpListItem pic={Op[2].icon} name={Op[2].name}/>
             <Seperate/>
-            <MeOpListItem/>
+            <MeOpListItem pic={Op[3].icon} name={Op[3].name}/>
         </View>   
       );
     }
@@ -183,19 +192,23 @@ import React, {Component,} from 'react';
     },
     me_bg_title_circle:{
         backgroundColor:'#F5222D',
-        borderRadius:6,
+        borderRadius:2,
         position:'absolute',
-        left:8,
+        right:-4,
         top:-4,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
     },
     me_bg_title_circle_txt:{
         color:'#fff',
         fontSize:8,
-        alignSelf:'center',
-        marginLeft:2,
-        marginRight:2,
-        marginTop:1,
-        marginBottom:1,
+        //alignSelf:'center',
+        //marginLeft:6,
+        //marginRight:6,
+        paddingTop:1,
+        paddingBottom:1,
+        //margin:3
     },
     me_bg_detail:{
         flexDirection:'row',

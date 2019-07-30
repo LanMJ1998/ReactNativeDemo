@@ -20,26 +20,29 @@ import  {MeBG,MeGeneralView,MeGeneralIcon,MeOpList,LogOut}  from './MeComponent'
 
 export default class ToolsIndex extends Component {
 
-    render() {
-      return (
-        <SafeAreaView>   
-            <ScrollView  contentInsetAdjustmentBehavior="automatic" style={styles.body}>
-                <View style={styles.me_bg}>
-                    <MeBG/>
-                    <MeGeneralView/>
-                    <MeGeneralIcon/>
-                </View>
-                <View style={styles.separate_line}></View>  
-                <MeOpList/> 
-                <View style={styles.separate_line}></View> 
-                <LogOut/>
-            </ScrollView>
-        </SafeAreaView>
-       
-        
-      );
-    }
-  };
+  render() {
+
+    return (
+      <SafeAreaView>   
+          <ScrollView  contentInsetAdjustmentBehavior="automatic" style={styles.body}>
+              <View style={styles.me_bg}>
+                  <MeBG noticeNum={199}/>
+                  <MeGeneralView monthFaultSum={472} monthFault={'本月处理故障'} 
+                                  dayFaultSum={86} dayFault={'今日处理故障'}
+                                  avgTime={30} avg={'日平均处理时长'}/>
+                  <MeGeneralIcon/>
+              </View>
+              <View style={styles.separate_line}></View>  
+              <MeOpList/> 
+              <View style={styles.separate_line}></View> 
+              <LogOut/>
+          </ScrollView>
+      </SafeAreaView>
+      
+      
+    );
+  }
+};
 
   const styles = StyleSheet.create({
     me_bg:{

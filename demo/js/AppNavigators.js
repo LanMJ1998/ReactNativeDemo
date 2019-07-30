@@ -4,6 +4,7 @@ import DisposeIndex from './DisposeIndex';
 import ToolsIndex from './ToolsIndex';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MeIndex from './MeIndex';
+import Tab from './Tab';
 import { createBottomTabNavigator,createStackNavigator,createMaterialTopTabNavigator  } from 'react-navigation';
 
 
@@ -24,7 +25,7 @@ const AppBottomTabNavigator=createBottomTabNavigator(
 		}
 	},
 	Page2:{
-		screen:DisposeIndex,
+		screen:Tab,
 		navigationOptions:{
 			tabBarLabel:"待办",
 			tabBarIcon:({tintColor,focused})=>(
@@ -158,6 +159,12 @@ export const AppStackNavigator=createStackNavigator(
 	},
 	App:{
 		screen:App,
+		navigationOptions:{
+            header:null
+        }
+	},
+	Tab:{
+		screen:Tab,
 		navigationOptions:{
             header:null
         }
